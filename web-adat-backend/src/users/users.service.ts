@@ -11,12 +11,19 @@ export class UsersService {
   }
   
   async create(createUserDto: CreateUserDto) {
+    const t0 = performance.now()
     await this.db.user.create({ data: createUserDto });
+    const t1 = performance.now()
+    console.log("Call to create user took " + (t1 - t0) + " milliseconds.")
     return "Felhasználó létrehozva";
   }
 
   async findAll() {
-    return await this.db.user.findMany();
+    const t0 = performance.now()
+    const users = await this.db.user.findMany();
+    const t1 = performance.now()
+    
+    return users;
   }
 
   async findOne(id: number) {

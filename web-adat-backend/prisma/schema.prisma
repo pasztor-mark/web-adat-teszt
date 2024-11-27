@@ -48,3 +48,9 @@ model Purchase {
   buyer         User      @relation(fields: [buyerId], references: [id])
   vehicle       Vehicle   @relation(fields: [vehicleId], references: [id])
 }
+model PerformanceMetrics {
+  id        Int @id @default(autoincrement())
+  name        String 
+  value       Float
+  description String
+}
