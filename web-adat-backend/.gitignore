@@ -3,6 +3,7 @@ packages/*/package-lock.json
 # dependencies
 node_modules/
 .env
+dist/
 
 # IDE
 /.idea
