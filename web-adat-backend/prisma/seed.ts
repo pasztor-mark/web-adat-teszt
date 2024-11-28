@@ -3,13 +3,13 @@ import { faker } from '@faker-js/faker';
 import { CreateUserDto } from '../src/users/dto/create-user.dto';
 import { CreateVehicleDto } from '../src/vehicles/dto/create-vehicle.dto';
 import { CreatePurchaseDto } from '../src/purchases/dto/create-purchase.dto';
-
+import { env } from 'process';
 const prisma = new PrismaClient();
-
+const seedAmount = +env.SEED_AMOUNT || 10;
 async function main() {
-  // Create users first
+  
   const users = [];
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < seedAmount; i++) {
     const createUserDto: CreateUserDto = {
       email: faker.internet.email(),
       name: faker.person.fullName(),
@@ -22,8 +22,9 @@ async function main() {
     users.push(user);
   }
 
-  // Create vehicles and purchases
-  for (let i = 0; i < 100; i++) {
+  
+
+  for (let i = 0; i < seedAmount; i++) {
     const seller = users[faker.number.int({ min: 0, max: users.length - 1 })];
     const buyer = faker.datatype.boolean() ? users[faker.number.int({ min: 0, max: users.length - 1 })] : null;
 
