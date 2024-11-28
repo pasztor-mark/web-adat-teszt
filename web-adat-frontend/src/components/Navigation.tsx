@@ -58,9 +58,9 @@ export default function Navigation() {
               Frontend Tesztek
             </NavLink>
             <NavLink
-              to="/performance-tests"
+              to="/charts"
               className={({ isActive }) =>
-                `text-white text-xl flex gap-2 items-center ${isActive ? "bg-neutral-800 p-3 rounded-3xl" : ""}`
+                `text-white text-xl flex gap-2 items-center ${isActive ? "underline" : "decoration-indigo-600"}`
               }
             >
               <FaChartLine />
@@ -122,7 +122,7 @@ export default function Navigation() {
                   Frontend Tesztek
                 </NavLink>
                 <NavLink
-                  to="/performance-tests"
+                  to="/charts"
                   className={({ isActive }) =>
                     `text-white text-xl flex gap-2 items-center ${isActive ? "bg-neutral-800 p-3 rounded-3xl" : ""}`
                   }

@@ -21,6 +21,7 @@ export class PerformancemetricsController {
     async getGroupMeasurement() {
         return this.performancemetricsService.getGroupMeasurement()
     }
+
   @Get('average/:name')
   async getAverageMeasurement(name: string) {
     return this.performancemetricsService.getAverageMeasurement(name)

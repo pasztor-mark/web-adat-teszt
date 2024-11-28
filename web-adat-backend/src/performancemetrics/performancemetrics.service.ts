@@ -23,34 +23,36 @@ export class PerformancemetricsService {
   }
   async getAverageMeasurement(name: string) {
     const metrics = await this.prisma.performanceMetrics.findMany({
-        where: {name}
-    })
+      where: { name },
+    });
 
     if (metrics.length === 0) {
-        throw new Error('Nincs ilyen mérés')
+      throw new Error('Nincs ilyen mérés');
     }
-    const ossz = metrics.reduce((acc, curr) => acc + curr.value, 0)
-    const atlag = ossz / metrics.length
+    const ossz = metrics.reduce((acc, curr) => acc + curr.value, 0);
+    const atlag = ossz / metrics.length;
 
     return {
-        name,
-        atlag
-    }
+      name,
+      atlag,
+    };
   }
+
+
   async getGroupMeasurement() {
     const metrics = await this.prisma.performanceMetrics.groupBy({
-        by: ['name'],
-        _avg: {
-            value: true
-        },
-        _count: {
-            value: true
-        }
-    })
-    return metrics.map(meres => ({
-        name: meres.name,
-        atlag: meres._avg.value,
-        count: meres._count.value
-    }))
+      by: ['name'],
+      _avg: {
+        value: true,
+      },
+      _count: {
+        value: true,
+      },
+    });
+    return metrics.map((meres) => ({
+      name: meres.name,
+      atlag: meres._avg.value,
+      count: meres._count.value,
+    }));
   }
 }
