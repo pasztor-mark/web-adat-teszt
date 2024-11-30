@@ -1,28 +1,26 @@
 import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { PrismaService } from 'src/prisma.service';
+import { PrismaService } from '../prisma.service'
 
 @Injectable()
 export class UsersService {
   db: PrismaService;
   constructor(db: PrismaService) {
-    this.db = db
+    this.db = db;
   }
-  
+
   async create(createUserDto: CreateUserDto) {
-    const t0 = performance.now()
+    const t0 = performance.now();
     await this.db.user.create({ data: createUserDto });
-    const t1 = performance.now()
-    console.log("Call to create user took " + (t1 - t0) + " milliseconds.")
-    return "Felhasználó létrehozva";
+    const t1 = performance.now();
+    console.log('Call to create user took ' + (t1 - t0) + ' milliseconds.');
+    return 'Felhasználó létrehozva';
   }
 
   async findAll() {
-    const t0 = performance.now()
     const users = await this.db.user.findMany();
-    const t1 = performance.now()
-    
+
     return users;
   }
 
@@ -32,7 +30,7 @@ export class UsersService {
 
   async update(id: number, updateUserDto: UpdateUserDto) {
     await this.db.user.update({ where: { id }, data: updateUserDto });
-    return "Felhasználó frissítve";
+    return 'Felhasználó frissítve';
   }
 
   async remove(id: number) {

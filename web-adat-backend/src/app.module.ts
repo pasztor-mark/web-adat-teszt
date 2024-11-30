@@ -10,7 +10,7 @@ import { PerformancemetricsService } from './performancemetrics/performancemetri
 import { PrismaService } from './prisma.service';
 
 @Module({
-  imports: [UsersModule, VehiclesModule, PurchasesModule, PerformancemetricsModule],
+  imports: [UsersModule, VehiclesModule, PurchasesModule, PerformancemetricsModule,],
   controllers: [AppController],
   providers: [PrismaService, AppService, PerformancemetricsService],
 })
