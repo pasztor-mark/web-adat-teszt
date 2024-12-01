@@ -8,7 +8,7 @@ export default function PageLayout() {
                 <Navigation/>
                 
             </header>
-            <main className='p-3'>
+            <main className='p-3 overflow-x-hidden'>
                 <Outlet />
             </main>
         </div>

@@ -45,3 +45,11 @@ export interface EndpointAverage {
   atlag: number;
   count: number;
 }
+export interface FetchStatus {
+  mounted?: boolean;
+  method: "GET" | "POST" | "PUT" | "DELETE" | undefined;
+  started?: boolean;
+  finished?: boolean;
+  fetchCompletionTime: number | undefined;
+  fetchError?: boolean;
+}

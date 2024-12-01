@@ -11,10 +11,10 @@ export class UsersService {
   }
 
   async create(createUserDto: CreateUserDto) {
-    const t0 = performance.now();
+    
     await this.db.user.create({ data: createUserDto });
-    const t1 = performance.now();
-    console.log('Call to create user took ' + (t1 - t0) + ' milliseconds.');
+    
+    
     return 'Felhasználó létrehozva';
   }
 

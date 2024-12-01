@@ -18,12 +18,32 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
+  #get {
+    @apply bg-green-500 p-2 rounded-xl text-white
+  }
+  #post {
+    @apply bg-yellow-600 p-2 rounded-xl text-white
+  }
+  #patch {
+    @apply bg-indigo-600 p-2 rounded-xl text-white
+  }
+  #delete {
+    @apply bg-red-600 p-2 rounded-xl text-white
+  }
 }
 @layer text {
-  p, h1, h2, h3, h4, h5, h6, a, span, li, th, td {
+  p, h1, h2, h3, h4, h5, h6, a, span, li, th, td, b, i {
     @apply text-white
+    
   }
   #root {
     @apply bg-neutral-900 min-h-screen
   }
+  code {
+    @apply text-neutral-100 bg-neutral-700 p-1 my-1 rounded-xl
+  }
+  mark {
+    @apply bg-neutral-700 text-neutral-100 p-1 my-1 rounded-xl underline text-center
+  }
+
 }

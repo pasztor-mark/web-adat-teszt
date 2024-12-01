@@ -1,0 +1,6 @@
+ul, li {
+    padding: 1;
+    margin: 1;
+    box-sizing: border-box;
+    inset: 40;
+}
