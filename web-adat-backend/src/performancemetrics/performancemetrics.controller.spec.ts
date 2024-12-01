@@ -15,7 +15,7 @@ describe('PerformancemetricsController', () => {
     controller = module.get<PerformancemetricsController>(PerformancemetricsController);
   });
 
-  it('should be defined', () => {
+  it('Kontroller definiálva', () => {
     expect(controller).toBeDefined();
   });
 });

@@ -15,7 +15,7 @@ describe('VehiclesController', () => {
     controller = module.get<VehiclesController>(VehiclesController);
   });
 
-  it('should be defined', () => {
+  it('Kontroller definiálva', () => {
     expect(controller).toBeDefined();
   });
 });

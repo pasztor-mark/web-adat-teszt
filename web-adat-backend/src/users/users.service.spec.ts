@@ -18,13 +18,17 @@ describe('UsersService', () => {
     service = module.get<UsersService>(UsersService);
   });
 
-  it('should be defined', () => {
+  it('Szolgáltatás definiálva', () => {
     expect(service).toBeDefined();
   });
-});
-describe('findAll', () => {
-  it('visszaadja az összes felhasználót', async () => {
-    const usersService = new UsersService(new PrismaService());
-    expect(await usersService.findAll()).toBeInstanceOf(Array<User>);
+  describe('findAll', () => {
+    it('Összes vétel lekérdezése', async () => {
+      expect(await service.findAll()).not.toEqual([]);
+    });
+  });
+  describe('findOne', () => {
+    it('Egy vétel lekérdezése', async () => {
+      expect(await service.findOne(1)).toBeInstanceOf(Object);
+    });
   });
 })

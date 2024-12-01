@@ -12,14 +12,19 @@ export class PerformancemetricsService {
     description: string,
   ) {
     const timeElapesd = t1 - t0;
+    try {
 
-    return this.prisma.performanceMetrics.create({
-      data: {
-        name,
-        description,
-        value: timeElapesd,
-      },
-    });
+      await this.prisma.performanceMetrics.create({
+        data: {
+          name,
+          description,
+          value: timeElapesd,
+        },
+      });
+      return 'SIKER';
+    } catch (error) {
+      return 'SIKERTELEN';
+    }
   }
   async getAverageMeasurement(name: string) {
     const metrics = await this.prisma.performanceMetrics.findMany({

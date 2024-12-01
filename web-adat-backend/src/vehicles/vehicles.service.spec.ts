@@ -14,7 +14,17 @@ describe('VehiclesService', () => {
     service = module.get<VehiclesService>(VehiclesService);
   });
 
-  it('should be defined', () => {
+  it('Szolgáltatás definiálva', () => {
     expect(service).toBeDefined();
+  });
+  describe('findAll', () => {
+    it('Összes vétel lekérdezése', async () => {
+      expect(await service.findAll()).not.toEqual([]);
+    });
+  });
+  describe('findOne', () => {
+    it('Egy vétel lekérdezése', async () => {
+      expect(await service.findOne(1)).toBeInstanceOf(Object);
+    });
   });
 });
